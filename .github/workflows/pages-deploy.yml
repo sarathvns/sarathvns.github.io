@@ -46,6 +46,17 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Node.js dependencies
+        run: npm install
+
+      - name: Build CSS
+        run: npm run build:css
+
       - name: Build site
         run: bundle exec jekyll b
         env:
